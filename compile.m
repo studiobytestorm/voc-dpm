@@ -43,19 +43,19 @@ if nargin < 3
   cascade_compile(opt, verb);
 
   cmd = [mexcmd(opt, verb) ' features/resize.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
   cmd = [mexcmd(opt, verb) ' features/features.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
   cmd = [mexcmd(opt, verb) ' gdetect/dt.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
   cmd = [mexcmd(opt, verb) ' gdetect/fast_bounded_dt.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
   cmd = [mexcmd(opt, verb) ' gdetect/get_detection_trees.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
   cmd = [mexcmd(opt, verb) ' gdetect/compute_overlap.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
   cmd = [mexcmd(opt, verb) ' gdetect/post_pad.cc'];
-  display(cmd); eval(cmd);
+  eval(cmd);
 
   % obsolete bounded dt algorithm & implementation
   %eval([mexcmd(opt, verb) ' CXXFLAGS="\$CXXFLAGS -DNUM_THREADS=0" gdetect/bounded_dt.cc']);

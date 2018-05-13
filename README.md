@@ -1,3 +1,15 @@
+Steps to Compile and Run under Windows (10)
+========================================
+
+Following steps are for Matlab 2017b and Windows 10.
+
+1. Find out the supported MinGW GCC version for relevant Matlab version 
+from (here)[https://in.mathworks.com/support/compilers.html]. For Matlab 2017b
+the version required is for MinGW-w64 GCC 5.3.0.
+2. Download the corresponding version of MinGW installer. Install MinGW and 
+note down the location.
+
+
 Information
 ===========
 

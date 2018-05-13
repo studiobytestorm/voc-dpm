@@ -49,7 +49,7 @@ static inline int max(int x, int y) { return (x <= y ? y : x); }
 // returns HOG features
 mxArray *process(const mxArray *mximage, const mxArray *mxsbin) {
   double *im = (double *)mxGetPr(mximage);
-  const int *dims = mxGetDimensions(mximage);
+  const size_t *dims = mxGetDimensions(mximage);
   if (mxGetNumberOfDimensions(mximage) != 3 ||
       dims[2] != 3 ||
       mxGetClassID(mximage) != mxDOUBLE_CLASS)
@@ -65,7 +65,7 @@ mxArray *process(const mxArray *mximage, const mxArray *mxsbin) {
   float *norm = (float *)mxCalloc(cells[0]*cells[1], sizeof(float));
 
   // memory for HOG features
-  int out[3];
+  size_t out[3];
   out[0] = max(cells[0]-2, 0);
   out[1] = max(cells[1]-2, 0);
   out[2] = 27+4+1;

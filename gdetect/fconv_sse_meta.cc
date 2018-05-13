@@ -20,6 +20,7 @@
 #include <pthread.h>
 #include <xmmintrin.h>
 #include <boost/preprocessor/repeat.hpp>
+// #include "../external/boost/preprocessor/repeat.hpp"
 
 // N.B. If you change the number of features you will need to unroll
 // the unrolled loop in process() more.

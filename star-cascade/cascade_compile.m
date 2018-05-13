@@ -22,9 +22,9 @@ function cascade_compile(opt, verb)
 % your project.
 % -------------------------------------------------------
 
-if ispc
-  error('This code is not supported on Windows.');
-end
+% if ispc
+%   error('This code is not supported on Windows.');
+% end
 
 if nargin < 1
   opt = true;
@@ -41,15 +41,16 @@ if verb
 end
 
 if opt
-  mexcmd = [mexcmd ' -O'];
-  mexcmd = [mexcmd ' CXXOPTIMFLAGS="-O3 -DNDEBUG -fomit-frame-pointer"'];
-  mexcmd = [mexcmd ' LDOPTIMFLAGS="-O3"'];
+%   mexcmd = [mexcmd ' -O'];
+%   mexcmd = [mexcmd ' CXXOPTIMFLAGS="-O3 -DNDEBUG -fomit-frame-pointer"'];
+%   mexcmd = [mexcmd ' LDOPTIMFLAGS="-O3"'];
 else
   mexcmd = [mexcmd ' -g'];
 end
 
-mexcmd = [mexcmd ' CXXFLAGS="\$CXXFLAGS -Wall"'];
-mexcmd = [mexcmd ' LDFLAGS="\$LDFLAGS -Wall"'];
+% mexcmd = [mexcmd ' CXXFLAGS="\$CXXFLAGS -Wall"'];
+% mexcmd = [mexcmd ' LDFLAGS="\$LDFLAGS -Wall"'];
 mexcmd = [mexcmd ' star-cascade/cascade.cc star-cascade/model.cc'];
 
+% display(mexcmd)
 eval(mexcmd);

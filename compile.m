@@ -22,9 +22,9 @@ function compile(opt, verb, mex_file)
 % your project.
 % -------------------------------------------------------
 
-if ispc
-  error('This code is not supported on Windows.');
-end
+% if ispc
+%   error('This code is not supported on Windows.');
+% end
 
 startup;
 
@@ -42,13 +42,20 @@ if nargin < 3
   % Build the star-cascade code
   cascade_compile(opt, verb);
 
-  eval([mexcmd(opt, verb) ' features/resize.cc']);
-  eval([mexcmd(opt, verb) ' features/features.cc']);
-  eval([mexcmd(opt, verb) ' gdetect/dt.cc']);
-  eval([mexcmd(opt, verb) ' gdetect/fast_bounded_dt.cc']);
-  eval([mexcmd(opt, verb) ' gdetect/get_detection_trees.cc']);
-  eval([mexcmd(opt, verb) ' gdetect/compute_overlap.cc']);
-  eval([mexcmd(opt, verb) ' gdetect/post_pad.cc']);
+  cmd = [mexcmd(opt, verb) ' features/resize.cc'];
+  display(cmd); eval(cmd);
+  cmd = [mexcmd(opt, verb) ' features/features.cc'];
+  display(cmd); eval(cmd);
+  cmd = [mexcmd(opt, verb) ' gdetect/dt.cc'];
+  display(cmd); eval(cmd);
+  cmd = [mexcmd(opt, verb) ' gdetect/fast_bounded_dt.cc'];
+  display(cmd); eval(cmd);
+  cmd = [mexcmd(opt, verb) ' gdetect/get_detection_trees.cc'];
+  display(cmd); eval(cmd);
+  cmd = [mexcmd(opt, verb) ' gdetect/compute_overlap.cc'];
+  display(cmd); eval(cmd);
+  cmd = [mexcmd(opt, verb) ' gdetect/post_pad.cc'];
+  display(cmd); eval(cmd);
 
   % obsolete bounded dt algorithm & implementation
   %eval([mexcmd(opt, verb) ' CXXFLAGS="\$CXXFLAGS -DNUM_THREADS=0" gdetect/bounded_dt.cc']);
@@ -116,5 +123,8 @@ else
   cmd = [cmd ' -g'];
 end
 % Turn all warnings on
-cmd = [cmd ' CXXFLAGS="\$CXXFLAGS -Wall -fopenmp ' extra_cxx_flags '"'];
-cmd = [cmd ' LDFLAGS="\$LDFLAGS -Wall -fopenmp ' extra_ld_flags '"'];
+% cmd = [cmd ' CXXFLAGS="\$CXXFLAGS -Wall -fopenmp ' extra_cxx_flags '"'];
+% cmd = [cmd ' LDFLAGS="\$LDFLAGS -Wall -fopenmp ' extra_ld_flags '"'];
+
+cmd = [cmd extra_cxx_flags '"'];
+cmd = [cmd extra_ld_flags '"'];

@@ -68,7 +68,7 @@ public:
   // feature pyramid data
   int numlevels;
   // dimensions of each feature pyramid level
-  mwSize **featdims;
+  int **featdims;
   // number of positions in each feature pyramid level
   int *featdimsprod;
   // feature pyramid levels

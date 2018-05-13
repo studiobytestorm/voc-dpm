@@ -18,6 +18,7 @@
 #include <math.h>
 #include <sys/types.h>
 #include <algorithm>
+#include <cstdint>
 
 using namespace std;
 
@@ -98,7 +99,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
     IN_RANGE
   };
 
-  const int *dims = mxGetDimensions(prhs[IN_VALS]);
+  const size_t *dims = mxGetDimensions(prhs[IN_VALS]);
   const double *vals = (double *)mxGetPr(prhs[IN_VALS]);
   double ax = mxGetScalar(prhs[IN_AX]);
   double bx = mxGetScalar(prhs[IN_BX]);

@@ -17,9 +17,9 @@ mex -setup c++
 
 4. Now run compile or demo scripts.
 5. Depending on how far you are in future from this point of time, while compiling
-you may get type errors/warnings from GCC. You will have to fix these yourself if required.
-I have fixed these for GCC 5.3.0, which should be ok for a few upcoming 
-versions of GCC. 
+you may get type errors/warnings from GCC. You will have to fix these yourself, if required.
+I have fixed the errors that showed up for GCC 5.3.0, which should be ok for a few upcoming 
+versions of GCC / Matlab. 
 
 Information
 ===========
